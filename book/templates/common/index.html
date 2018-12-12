@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>chinaz</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{{ url_for('static',filename='assets/css/bootstrap.css') }}" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="{{ url_for('static',filename='assets/css/font-awesome.css') }}" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link href="{{ url_for('static',filename='assets/css/basic.css') }}" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link href="{{ url_for('static',filename='assets/css/custom.css') }}" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">北京尚学堂管理信息</a>
+        </div>
+
+        <div class="header-right">
+
+            <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i
+                    class="fa fa-envelope-o fa-2x"></i></a>
+            <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i
+                    class="fa fa-bars fa-2x"></i></a>
+            <a href="login.html" class="btn btn-danger" title="Logout"><i
+                    class="fa fa-exclamation-circle fa-2x"></i></a>
+
+        </div>
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <div class="user-img-div">
+                        <img src="{{ url_for('static',filename='assets/img/user.png') }}" class="img-thumbnail"/>
+
+                        <div class="inner-text">
+                            Python 学院
+                            <br/>
+                            <small>某某老师</small>
+                        </div>
+                    </div>
+
+                </li>
+
+
+                <li>
+                    <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>主页</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-desktop "></i>图书管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>新书入库</a>
+                        </li>
+                        <li>
+                            <a href="notification.html"><i class="fa fa-bell "></i>图书出库</a>
+                        </li>
+                        <li>
+                            <a href="progress.html"><i class="fa fa-circle-o "></i>图书信息修改</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-yelp "></i>借书证管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="invoice.html"><i class="fa fa-coffee"></i>借书证办理</a>
+                        </li>
+                        <li>
+                            <a href="pricing.html"><i class="fa fa-flash "></i>借书证注销</a>
+                        </li>
+                        <li>
+                            <a href="component.html"><i class="fa fa-key "></i>读者信息修改</a>
+                        </li>
+                        <li>
+                            <a href="social.html"><i class="fa fa-send "></i>借书证挂失</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bicycle "></i>借书信息管理 <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+
+                        <li>
+                            <a href="form.html"><i class="fa fa-desktop "></i>办理借阅 </a>
+                        </li>
+                        <li>
+                            <a href="form-advance.html"><i class="fa fa-code "></i>归还图书</a>
+                        </li>
+                        <li>
+                            <a href="form-advance.html"><i class="fa fa-code "></i>办理还款</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="gallery.html"><i class="fa fa-anchor "></i>图书检索</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('user') }}"><i class="fa fa-bug "></i>用户管理</a>
+                </li>
+                <li>
+                    <a href="login.html"><i class="fa fa-sign-in "></i>注销登录</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
+                        </li>
+                        <li>
+                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        {% block content %}
+        {% endblock content %}
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+
+<div id="footer-sec">
+    Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+</div>
+<!-- /. FOOTER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="{{ url_for('static',filename='assets/js/jquery-1.10.2.js') }}"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="{{ url_for('static',filename='assets/js/bootstrap.js') }}"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="{{ url_for('static',filename='assets/js/jquery.metisMenu.js') }}"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="{{ url_for('static',filename='assets/js/custom.js') }}"></script>
+
+
+</body>
+</html>
