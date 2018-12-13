@@ -34,8 +34,8 @@ def page_not_found(text):
 def book_add():
     if request.args.get('method') == 'add':
         sorts = get_sort()
-        print(sorts)
-        return render_template('book/add.html')
+        #print(sorts)
+        return render_template('book/add.html',sorts=sorts)
     else:
         pass
     # book = Book()

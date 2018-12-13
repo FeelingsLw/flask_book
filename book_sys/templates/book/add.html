@@ -9,12 +9,11 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                            <label>Select Example</label>
+                                            <label>图书类型</label>
                                             <select class="form-control">
-                                                <option>One Vale</option>
-                                                <option>Two Vale</option>
-                                                <option>Three Vale</option>
-                                                <option>Four Vale</option>
+                                                {% for sort in sorts %}
+                                                     <option value="{{ sort.sort_id }}">{{ sort.sort_name }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                             <hr>
