@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 80012
  Source Host           : localhost:3306
- Source Schema         : book
+ Source Schema         : book_sys
 
  Target Server Type    : MySQL
  Target Server Version : 80012
@@ -100,7 +100,7 @@ CREATE TABLE `t_student` (
   `student_num` int(11) NOT NULL AUTO_INCREMENT COMMENT '学号',
   `student_name` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
   `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
-  `academy_id` int(10) NOT NULL COMMENT '学院id',
+  `college_id` int(10) NOT NULL COMMENT '学院id',
   `class_id` int(10) NOT NULL COMMENT '班级id',
   `sex` varchar(2) DEFAULT NULL COMMENT '性别',
   `telephone` varchar(15) DEFAULT NULL COMMENT '电话',

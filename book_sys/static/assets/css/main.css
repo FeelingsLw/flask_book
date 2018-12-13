@@ -3284,7 +3284,7 @@ pre {
   .nav-tabs.nav-justified li:last-child a {
     margin-bottom: 0;
   }
-  /* ------------------ Email book --------------------*/
+  /* ------------------ Email book_sys --------------------*/
   .email-list {
     padding-left: 0;
     padding-right: 0;
@@ -3383,7 +3383,7 @@ pre {
   .form-wizard.wizard-vertical .wizard-actions {
     padding-left: 0;
   }
-  /* ------------------ Email book --------------------*/
+  /* ------------------ Email book_sys --------------------*/
   .email-toolbar div[role=toolbar] {
     width: 100%;
     margin-bottom: 10px;
@@ -3412,7 +3412,7 @@ pre {
   .option-buttons {
     display: none;
   }
-  /* ------------------ Email book --------------------*/
+  /* ------------------ Email book_sys --------------------*/
   #email-content {
     padding-left: 0;
     padding-right: 0;
