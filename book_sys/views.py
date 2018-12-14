@@ -30,14 +30,16 @@ def page_not_found(text):
     return render_template('common/404.html'), 404
 
 
-@app.route('/book/')
-def book_add():
-    if request.args.get('method') == 'add':
-        sorts = get_sort()
-        #print(sorts)
-        return render_template('book/add.html',sorts=sorts)
-    else:
-        pass
+@app.route('/book/add/')
+def book_add(book):
+
+    sorts = get_sort()
+    #print(sorts)
+    return render_template('book/add.html',sorts=sorts)
+
+@app.route('/book/do_add/')
+def book_do_add():
+    return "SUCCESS"
     # book = Book()
     # book.book_name='Python'
     # book.writer = 'zs'
