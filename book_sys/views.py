@@ -32,7 +32,6 @@ def page_not_found(text):
     return render_template('common/404.html'), 404
 
 
-# ------------------图书模块---------------------
 @app.route('/book/list/')
 def book_list():
     books = get_books()
