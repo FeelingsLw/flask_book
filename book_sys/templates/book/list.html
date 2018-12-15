@@ -1,0 +1,63 @@
+{% extends "common/index.html" %}
+{% block content %}
+    <!-- 图书增加页面 -->
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col-md-12">
+            <h1 class="page-head-line">图书查看</h1>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--    Striped Rows Table  -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Striped Rows Table
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>图书名称</th>
+                                <th>图书作者</th>
+                                <th>图书类型</th>
+                                <th>图书价格</th>
+                                <th>图书出版社</th>
+                                <th>图书出版日期</th>
+                                <th>图书总数量</th>
+                                <th>图书当前库存</th>
+                                <th>入库时间</th>
+                                <th>图书简介</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for book in books %}
+                                <tr>
+                                    <td>{{ book.book_num }}</td>
+                                    <td>{{ book.book_name }}</td>
+                                    <td>{{ book.writer }}</td>
+                                    <td>{{ book.sort_id }}</td>
+                                    <td>{{ book.price }}</td>
+                                    <td>{{ book.pub_company }}</td>
+                                    <td>{{ book.pub_date }}</td>
+                                    <td>{{ book.total_num }}</td>
+                                    <td>{{ book.current_num }}</td>
+                                    <td>{{ book.buy_date }}</td>
+                                    <td>{{ book.brief }}</td>
+                                    <td><a href="/book/update/{{ book.book_num }}/" class="btn btn-sm btn-primary">修改</a></td>
+                                    <td><a href="/book/remove/{{ book.book_num }}/" class="btn btn-sm btn-danger">删除</a></td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--  End  Striped Rows Table  -->
+        </div>
+    </div>
+{% endblock content %}

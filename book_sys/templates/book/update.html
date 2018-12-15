@@ -14,43 +14,56 @@
 
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="/book/do_add/" method="post">
+                    <form role="form" action="/book/do_update/{{ book.book_num }}/" method="post">
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书名称</label>
-                            <input class="form-control" name="name" type="text">
+                            <input class="form-control" name="name" type="text" value="{{ book.book_name }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书作者</label>
-                            <input class="form-control" name="writer" type="text">
+                            <input class="form-control" name="writer" type="text" value="{{ book.writer }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书类型</label>
                             <select class="form-control" name="sort_id">
                                 {% for sort in sorts %}
-                                    <option value="{{ sort.sort_id }}">{{ sort.sort_name }}</option>
+                                    {% if book.sort_id == sort.sort_id%}
+                                        <option value="{{ sort.sort_id }}" selected="selected">{{ sort.sort_name }}</option>
+                                    {% else %}
+                                        <option value="{{ sort.sort_id }}">{{ sort.sort_name }}</option>
+                                    {% endif %}
+
+
                                 {% endfor %}
                             </select>
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书价格</label>
-                            <input class="form-control" type="text" name="price">
+                            <input class="form-control" type="text" name="price" value="{{ book.price }}">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书出版社</label>
-                            <input class="form-control" type="text" name="pub_company">
+                            <input class="form-control" type="text" name="pub_company" value="{{ book.pub_company }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书出版时间</label>
-                            <input class="form-control" type="date" name="pub_date">
+                            <input class="form-control" type="date" name="pub_date" value="{{ book.pub_date }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>内容摘要</label>
-                            <textarea class="form-control" rows="3" name="brief"></textarea>
+                            <textarea class="form-control" rows="3" name="brief" value="{{ book.brief }}"></textarea>
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书总数</label>
-                            <input class="form-control" type="number" name="total_num" min="0">
+                            <input class="form-control" type="number" name="total_num" min="0"
+                                   value="{{ book.total_num }}">
+
+                        </div>
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>图书库存</label>
+                            <input class="form-control" type="number" name="current_num" min="0"
+                                   value="{{ book.total_num }}">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">

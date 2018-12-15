@@ -1,8 +1,18 @@
 from book_sys import db
 
 
+class User(db.Model):
+    __tablename__ = 't_user'
+    id = db.Column(db.Integer, primary_key=True)
+    uname = db.Column(db.String(30))
+    passwd = db.Column(db.String(255))
+
+class Role(db.Model):
+    __tablename__ ='t_role'
+    id =db.Column(db.Integer,primary_key=True)
+
 class Book(db.Model):
-    __tablename__='t_book'
+    __tablename__ = 't_book'
     book_num = db.Column(db.Integer, primary_key=True)
     book_name = db.Column(db.String(20))
     writer = db.Column(db.String(10))
@@ -21,8 +31,8 @@ class Student(db.Model):
     student_num = db.Column(db.Integer, primary_key=True)
     student_name = db.Column(db.String(10))
     password = db.Column(db.String(20))
-    academy_id = db.Column(db.Integer,db.ForeignKey('college.id'))
-    class_id = db.Column(db.Integer,db.ForeignKey('class_.id'))
+    academy_id = db.Column(db.Integer, db.ForeignKey('college.id'))
+    class_id = db.Column(db.Integer, db.ForeignKey('class_.id'))
     sex = db.Column(db.String(2))
     telephone = db.Column(db.String(15))
     email = db.Column(db.String(20))
@@ -47,7 +57,7 @@ class Class_(db.Model):
     __tablename__ = 't_class'
     class_id = db.Column(db.INT, primary_key=True)
     class_name = db.Column(db.String(30))
-    college_id = db.Column(db.Integer,db.ForeignKey('college.id'))
+    college_id = db.Column(db.Integer, db.ForeignKey('college.id'))
 
 
 class Sort(db.Model):
