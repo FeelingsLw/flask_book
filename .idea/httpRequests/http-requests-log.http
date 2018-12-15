@@ -1,0 +1,41 @@
+GET https://booking.airasia.com/Flight/Select?o1=PEK&d1=DMK&dd1=2019-02-14&culture=zh-CN&r=true&ADT=2&CHD=0&inl=0&mon=true
+Accept: */*
+Cache-Control: no-cache
+Cookie: acw_sc_v3=5489C2A2DE8E8865AFCE9D6379AA1CC6D8CB1266
+
+<> 2018-12-14T104710.200.html
+
+###
+
+GET https://booking.airasia.com/Flight/Select?o1=PEK&d1=DMK&dd1=2019-02-14&culture=zh-CN&r=true&ADT=2&CHD=0&inl=0&mon=true
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-14T104610.200.html
+
+###
+
+GET https://booking.airasia.com/Flight/Select?o1=PEK&d1=DMK&dd1=2019-02-14&culture=zh-CN&r=true&ADT=2&CHD=0&inl=0&mon=true
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-14T104532.200.html
+
+###
+
+GET https://booking.airasia.com/Flight/Select?o1=PEK&d1=DMK&dd1=2019-02-14&culture=zh-CN&r=true&ADT=2&CHD=0&inl=0&mon=true
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-14T104519.200.html
+
+###
+
+GET https://booking.airasia.com/Flight/Select?o1=PEK&d1=DMK&dd1=2019-02-14&culture=zh-CN&r=true&ADT=2&CHD=0&inl=0&mon=true
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-12-14T085135.200.html
+
+###
+

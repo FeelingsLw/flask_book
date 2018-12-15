@@ -1,0 +1,139 @@
+Index: book_sys/models.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from book_sys import db\n\n\nclass Book(db.Model):\n    __tablename__='t_book'\n    book_num = db.Column(db.Integer, primary_key=True)\n    book_name = db.Column(db.String(20))\n    writer = db.Column(db.String(10))\n    sort_id = db.Column(db.String(5))\n    price = db.Column(db.Integer)\n    pub_company = db.Column(db.String(20))\n    pub_date = db.Column(db.DATE)\n    total_num = db.Column(db.INT)\n    current_num = db.Column(db.Integer)\n    buy_date = db.Column(db.DATE)\n    brief = db.Column(db.String(100))\n\n\nclass Student(db.Model):\n    __tablename__ = 't_student'\n    student_num = db.Column(db.Integer, primary_key=True)\n    student_name = db.Column(db.String(10))\n    password = db.Column(db.String(20))\n    academy_id = db.Column(db.Integer,db.ForeignKey('college.id'))\n    class_id = db.Column(db.Integer,db.ForeignKey('class_.id'))\n    sex = db.Column(db.String(2))\n    telephone = db.Column(db.String(15))\n    email = db.Column(db.String(20))\n    lended_num = db.Column(db.Integer)\n    create_date = db.Column(db.DATE)\n\n\nclass Admin(db.Model):\n    __tablename__ = 't_admin'\n    admin_id = db.Column(db.Integer, primary_key=True)\n    admin_name = db.Column(db.String(10))\n    admin_password = db.Column(db.String(20))\n\n\nclass College(db.Model):\n    __tablename__ = 't_college'\n    college_id = db.Column(db.Integer, primary_key=True)\n    college_name = db.Column(db.String(30))\n\n\nclass Class_(db.Model):\n    __tablename__ = 't_class'\n    class_id = db.Column(db.INT, primary_key=True)\n    class_name = db.Column(db.String(30))\n    college_id = db.Column(db.Integer,db.ForeignKey('college.id'))\n\n\nclass Sort(db.Model):\n    __tablename__ = 't_sort'\n    sort_id = db.Column(db.Integer, primary_key=True)\n    sort_name = db.Column(db.String(20))\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- book_sys/models.py	(revision fcd933f4be5a4f292977779564358037d5df6f6a)
++++ book_sys/models.py	(date 1544861771000)
+@@ -1,8 +1,15 @@
+ from book_sys import db
+ 
+ 
++class User(db.Model):
++    __tablename__ = 't_user'
++    id = db.Column(db.Integer, primary_key=True)
++    uname = db.Column(db.String(30))
++    password = db.Column(db.String(255))
++
++
+ class Book(db.Model):
+-    __tablename__='t_book'
++    __tablename__ = 't_book'
+     book_num = db.Column(db.Integer, primary_key=True)
+     book_name = db.Column(db.String(20))
+     writer = db.Column(db.String(10))
+@@ -21,8 +28,8 @@
+     student_num = db.Column(db.Integer, primary_key=True)
+     student_name = db.Column(db.String(10))
+     password = db.Column(db.String(20))
+-    academy_id = db.Column(db.Integer,db.ForeignKey('college.id'))
+-    class_id = db.Column(db.Integer,db.ForeignKey('class_.id'))
++    academy_id = db.Column(db.Integer, db.ForeignKey('college.id'))
++    class_id = db.Column(db.Integer, db.ForeignKey('class_.id'))
+     sex = db.Column(db.String(2))
+     telephone = db.Column(db.String(15))
+     email = db.Column(db.String(20))
+@@ -47,7 +54,7 @@
+     __tablename__ = 't_class'
+     class_id = db.Column(db.INT, primary_key=True)
+     class_name = db.Column(db.String(30))
+-    college_id = db.Column(db.Integer,db.ForeignKey('college.id'))
++    college_id = db.Column(db.Integer, db.ForeignKey('college.id'))
+ 
+ 
+ class Sort(db.Model):
+Index: book_sys/demo.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- book_sys/demo.py	(date 0)
++++ book_sys/demo.py	(date 0)
+@@ -0,0 +1,23 @@
++import requests
++import execjs
++import re
++
++url = 'https://booking.airasia.com/Flight/Select?o1=PEK&d1=TWU&dd1=2019-03-13&culture=en-GB&ADT=2&CHD=0&inl=0&mon=true&cc=MYR&c=true'
++
++headers = {
++    'Cookie': 'displayFare=%7B%22displayFare%22%3A1382.75%2C%22resultsLink%22%3A%22https%3A//booking.airasia.com/Flight/Select%3Fo1%3DPEK%26d1%3DDMK%26dd1%3D2019-02-14%26culture%3Dzh-CN%26r%3Dtrue%26ADT%3D2%26CHD%3D0%26inl%3D0%26mon%3Dtrue%22%2C%22currency%22%3A%22CNY%22%2C%22destinationCity%22%3A%22%25E6%259B%25BC%25E8%25B0%25B7%2520-%2520%25E5%25BB%258A%25E6%259B%25BC%2520%28DMK%29%22%2C%22departureCity%22%3A%22%25E5%258C%2597%25E4%25BA%25AC%2520%28PEK%29%22%7D; rxVisitor=1544795124292NGFMD74TNEJOCB4L6HOJ3NNO4SFFCURB; ASP.NET_SessionId=jksgs1jkimgqs2s3b4t2gp3x; appID=W001; __RequestVerificationToken=1PBqeJAt6uGQcX8GiEGtGCgIsgQMZqA_16BP96W_BwUjM0UY2b8uSNPmiFepyZPFY1Pi7lQyUbBUvfVChWfXCsRrjQQ2Hgqar1SodcJBxpwlaB-2q6Wc5Ry3CAQ7BxXs5abADA2; _gcl_au=1.1.303661293.1544796063; __airasiaga=GA1.2.1172784549.1544796063; __airasiaga_gid=GA1.2.1320687108.1544796063; optimizelyEndUserId=oeu1544797549957r0.2762198805282272; nearest_airports={"city":"BEIJING","airports":"PEK|TSN|XIY"}; acw_tc=7b3975cf15448011751165793e6189004ccdaee619a20748e46935950e; acw_sc_v3=5c13cbbf8f755e0e8fa64d33f7735eb8797879cb; dotrez=1511187466.20480.0000; dtLatC=1; _recent_searches={"recent":[{"origin":"PEK","departlowfare":"1510.00","returnlowfare":0,"destination":"DMK","departDate":"2019-02-14","returnDate":"NA","currency":"CNY","flightType":"oneWayTrip","adult":"2","children":"0","infant":"0","timestamp":"2018-12-14T14:01:04.655Z","url":"https://booking.airasia.com/Flight/Select?o1=PEK&d1=DMK&dd1=2019-02-14&culture=zh-CN&r=true&ADT=2&CHD=0&inl=0&mon=true"},{"origin":"PEK","departlowfare":"2535.25","returnlowfare":0,"destination":"TWU","departDate":"2019-06-17","returnDate":"NA","currency":"MYR","flightType":"oneWayTrip","adult":"2","children":"0","infant":"0","timestamp":"2018-12-14T15:33:07.484Z","url":"https://booking.airasia.com/Flight/Select?o1=PEK&d1=TWU&dd1=2019-06-17&culture=en-GB&ADT=2&CHD=0&inl=0&mon=true&cc=MYR&c=true"}]}; displaySSR=%7B%22meal%22:%22%22,%22departureDate%22:%222019-3-13%22,%22bookingDate%22:%222018-12-14%22%7D; flightSelect=PEK|TWU|2019-03-13|N|2|0|0|O|N; dotRezSignature=K1l4M3BnMnQ0YnMvTi9RRkZXaz18TmRSQUlYMzFOQmlxM3Myc3FnbWlza2oxc2dza2pFQnZybm41amRlVXNjWVpsY3JmdXIrUm4wTEFmaFVyYlVGcEV4cDk5MDAyQkNGdVlrOW9UOGxPUy8vMlVYckQvV2JVWXAwMjh1bmtpQk1SK2puaE5RUTVOUWYrc1luSURDVlJVMkdya1d0ZmZUMFYya3M0aGNjbzN4a0xpZGUxYm5ERkdnWT0=; userSession=cc=en-GB&mcc=MYR&rc=WWWA&ad=jksgs1jkimgqs2s3b4t2gp3x&p=&st=1544801622.27124; jaceToken=1ea4a2c7-17c3-42fa-9cc1-f9b7fa9916e4; dtPC=3$401594903_306h1vNOGIKLJEBNMMIIJPIACIIFJNJIBAGDJI; dtCookie=3$DC2D2C9774B409DCD828C30C10052718|booking.airasia.com|1|RUM+Default+Application|1; dtSa=false%7C_load_%7C1%7C_load_%7C-%7C1544801593952%7C401594903_306%7Chttps%3A%2F%2Fbooking.airasia.com%2FFlight%2FSelect%3Fo1%3DPEK%26d1%3DTWU%26dd1%3D2019-03-13%26culture%3Den-GB%26ADT%3D2%26CHD%3D0%26inl%3D0%26mon%3Dtrue%26cc%3DMYR%26c%3Dtrue%7CAirAsia%20%5Ep%20Booking%20%5Ep%20Book%20low%20fares%20online%20-%20Select%7C1544801740114%7C; rxvt=1544803565198|1544800369690'}
++session = requests.Session()
++resp = session.get(url, headers=headers)
++print(resp.text)
++# r2= session.get(url)
++# print(r2.text)
++
++
++ # s=re.findall(r'<script>(.+)</script>',resp.text,re.DOTALL)[0]
++
++# print(js)
++# print(re.sub(r'{setCookie','{return x; setCookie',js))
++
++# ctx = execjs.compile(re.sub(r'{setCookie','{return x; setCookie',js))
++
++# print(ctx.call("reload"))
+Index: book_sys/servies.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from book_sys.models import *\nfrom . import db\n\n\ndef add_book(book):\n    db.session.add(book)\n    db.session.commit()\n\n\ndef get_sort():\n    return Sort.query.all()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- book_sys/servies.py	(revision fcd933f4be5a4f292977779564358037d5df6f6a)
++++ book_sys/servies.py	(date 1544861771000)
+@@ -2,10 +2,25 @@
+ from . import db
+ 
+ 
++def get_user(uname, password):
++    user = User.query.filter_by(uname=uname, password=password)
++    return user
++
++
++def get_admin(uname, password):
++    user = Admin.query.filter_by(admin_name=uname, admin_password=password).first()
++    return user
++
++
++def get_student(uname, passwrod):
++    stu = Student.query.filter_by(student_name=uname, password=passwrod).first()
++    return stu
++
++
+ def add_book(book):
+     db.session.add(book)
+     db.session.commit()
+ 
+ 
+ def get_sort():
+-    return Sort.query.all()
+\ No newline at end of file
++    return Sort.query.all()
+Index: book_sys/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask import Flask, render_template, request, redirect, url_for\r\nfrom book_sys import app\r\nfrom .models import *\r\nfrom .servies import *\r\n\r\n\r\n@app.route('/')\r\ndef main():\r\n    return render_template('common/index.html')\r\n\r\n\r\n@app.route('/login', methods=['GET', 'POST'])\r\ndef login():\r\n    if request.method == 'POST':\r\n        uname = request.form['uname']\r\n        pwd = request.form['passwd']\r\n        print(uname + '---' + pwd)\r\n        return redirect(url_for('main'))\r\n    else:\r\n        return render_template('login.html')\r\n\r\n\r\n@app.route('/user')\r\ndef user():\r\n    return render_template('user.html')\r\n\r\n\r\n@app.errorhandler(404)\r\ndef page_not_found(text):\r\n    return render_template('common/404.html'), 404\r\n\r\n\r\n@app.route('/book/')\r\ndef book_add():\r\n    if request.args.get('method') == 'add':\r\n        sorts = get_sort()\r\n        #print(sorts)\r\n        return render_template('book/add.html',sorts=sorts)\r\n    else:\r\n        pass\r\n    # book = Book()\r\n    # book.book_name='Python'\r\n    # book.writer = 'zs'\r\n    # book.sort_id =1\r\n    # book.price = 1\r\n    # book.pub_company = '图灵'\r\n    # book.pub_date = '2018-01-01'\r\n    # book.total_num = 2\r\n    # book.current_num = 2\r\n    # book.buy_date = '2018-01-01'\r\n    # book.brief = '100'\r\n    #\r\n    # add_book(book)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- book_sys/views.py	(revision fcd933f4be5a4f292977779564358037d5df6f6a)
++++ book_sys/views.py	(date 1544861771000)
+@@ -15,6 +15,7 @@
+         uname = request.form['uname']
+         pwd = request.form['passwd']
+         print(uname + '---' + pwd)
++        user = get_user(uname,pwd)
+         return redirect(url_for('main'))
+     else:
+         return render_template('login.html')
+@@ -29,7 +30,6 @@
+ def page_not_found(text):
+     return render_template('common/404.html'), 404
+ 
+-
+ @app.route('/book/')
+ def book_add():
+     if request.args.get('method') == 'add':
