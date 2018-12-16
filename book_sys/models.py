@@ -28,10 +28,9 @@ class Book(db.Model):
 
 class Student(db.Model):
     __tablename__ = 't_student'
-    student_num = db.Column(db.Integer, primary_key=True)
-    student_name = db.Column(db.String(10))
-    password = db.Column(db.String(20))
-    academy_id = db.Column(db.Integer, db.ForeignKey('college.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(10))
+    college_id = db.Column(db.Integer, db.ForeignKey('college.id'))
     class_id = db.Column(db.Integer, db.ForeignKey('class_.id'))
     sex = db.Column(db.String(2))
     telephone = db.Column(db.String(15))

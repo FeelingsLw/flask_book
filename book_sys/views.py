@@ -32,6 +32,8 @@ def page_not_found(text):
     return render_template('common/404.html'), 404
 
 
+# -----------------图书操作--------------------
+
 @app.route('/book/list/')
 def book_list():
     books = get_books()
@@ -81,14 +83,81 @@ def book_update(id):
     sorts = get_sort()
     return render_template('book/update.html', book=book, sorts=sorts)
 
+
 @app.route('/book/do_update/<int:id>/')
 def book_do_update(id):
-    args={}
+    args = {}
     for key in dict(request.form).keys():
-        args[key]=request.form[key]
-    result = update_book(id,args)
+        args[key] = request.form[key]
+    result = update_book(id, args)
     if result > 0:
         return render_template('common/massage.html', msg='图书修改成功')
 
     else:
         return render_template('common/massage.html', msg='图书修改失败')
+
+
+# --------------------借书证--------------------------
+
+@app.route('/student/list/')
+def student_list():
+    students = get_students()
+    return render_template('student/list.html', students=students)
+
+
+@app.route('/student/remove/<int:id>/')
+def student_remove(id):
+    result = remove_student(id)
+    if result > 0:
+        return render_template('common/massage.html', msg='图书删除成功')
+
+    else:
+        return render_template('common/massage.html', msg='图书删除失败')
+
+
+@app.route('/student/add/')
+def student_add():
+    sorts = get_sort()
+    return render_template('student/add.html', sorts=sorts)
+
+
+@app.route('/student/do_add/', methods=['POST'])
+def student_do_add():
+    stu = Student()
+    # book.book_name = request.form['name']
+    # book.writer = request.form['writer']
+    # book.sort_id = request.form['sort_id']
+    # book.price = request.form['price']
+    # book.pub_company = request.form['pub_company']
+    # book.pub_date = request.form['pub_date']
+    # book.brief = request.form['brief']
+    # book.total_num = request.form['total_num']
+    # book.current_num = request.form['total_num']
+    # book.buy_date = datetime.datetime.now().strftime('%Y-%m-%d')
+    result = add_student(stu)
+    if result > 0:
+        return render_template('common/massage.html', msg='借书证增加成功')
+
+    else:
+        return render_template('common/massage.html', msg='借证书增加失败')
+
+
+@app.route('/student/update/<int:id>/')
+def student_update(id):
+    student = get_student(id)
+    colleges = get_college()
+    clases = get_class()
+    return render_template('student/update.html', student=student, colleges=colleges, clases=clases)
+
+
+@app.route('/student/do_update/<int:id>/')
+def student_do_update(id):
+    args = {}
+    for key in dict(request.form).keys():
+        args[key] = request.form[key]
+    result = update_book(id, args)
+    if result > 0:
+        return render_template('common/massage.html', msg='借证书修改成功')
+
+    else:
+        return render_template('common/massage.html', msg='借证书修改失败')

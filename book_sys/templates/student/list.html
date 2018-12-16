@@ -1,0 +1,59 @@
+{% extends "common/index.html" %}
+{% block content %}
+    <!-- 读者信息页面 -->
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col-md-12">
+            <h1 class="page-head-line">借书证查看</h1>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--    Striped Rows Table  -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>借书证人</th>
+                                <th>借书证所属学院</th>
+                                <th>借书证所属班级</th>
+                                <th>借书证人性别</th>
+                                <th>借书证人电话</th>
+                                <th>借书证人Email</th>
+                                <th>借书数量</th>
+                                <th>入库时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for student in students %}
+                                <tr>
+                                    <td>{{ student.id }}</td>
+                                    <td>{{ student.name }}</td>
+                                    <td>{{ student.college_id }}</td>
+                                    <td>{{ student.class_id }}</td>
+                                    <td>{{ student.sex }}</td>
+                                    <td>{{ student.telephone }}</td>
+                                    <td>{{ student.email }}</td>
+                                    <td>{{ student.lended_num }}</td>
+                                    <td>{{ student.current_num }}</td>
+                                    <td>
+                                        <a href="/student/update/{{ student.id }}/" class="btn btn-sm btn-primary">修改</a>
+                                        <a href="/student/remove/{{ student.id }}/" class="btn btn-sm btn-danger">删除</a></td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--  End  Striped Rows Table  -->
+        </div>
+    </div>
+{% endblock content %}

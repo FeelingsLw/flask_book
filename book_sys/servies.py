@@ -34,13 +34,15 @@ def add_book(book):
     if bo:
         return 0
     else:
-        result = db.session.add(book)
+        db.session.add(book)
         db.session.commit()
         return 1
+
 
 def get_book(id):
     book = Book.query.filter_by(book_num=id).first()
     return book
+
 
 def get_books(book=None):
     if book:
@@ -48,19 +50,67 @@ def get_books(book=None):
     else:
         return Book.query.all()
 
+
 def remove_book(id):
     result = Book.query.filter_by(book_num=id).delete()
     db.session.commit()
     return result
 
 
-def update_book(id,book):
+def update_book(id, book):
     result = Book.query.filter_by(book_num=id).update(book)
-    #db.session.commit()
+    db.session.commit()
     return result
-
-
 
 
 def get_sort():
     return Sort.query.all()
+
+
+# -----------------学生管理--------------------------
+def get_student(id):
+    stu = Student.query.filter_by(id=id).first()
+    return stu
+
+
+def get_students(stu=None):
+    if stu:
+        pass
+    else:
+        return Student.query.all()
+
+
+def remove_student(id):
+    result = Student.query.filter_by(id=id).delete()
+    db.session.commit()
+    return result
+
+
+def update_student(id, stu):
+    result = Student.query.filter_by(id=id).update(stu)
+    db.session.commit()
+    return result
+
+
+def add_student(student):
+    stu = Student.query.filter_by(id=student.id).first()
+    if stu:
+        return 0
+    else:
+        db.session.add(stu)
+        db.session.commit()
+        return 1
+
+
+def get_college(id=None):
+    if id:
+        return College.query.filter_by(college_id=id).first()
+    else:
+        return College.query().all()
+
+
+def get_class(id=None):
+    if id:
+        return Class_.query.filter_by(class_id=id).first()
+    else:
+        return Class_.query().all()

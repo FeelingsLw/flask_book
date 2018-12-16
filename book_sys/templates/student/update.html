@@ -1,9 +1,9 @@
 {% extends "common/index.html" %}
 {% block content %}
-    <!-- 图书增加页面 -->
+    <!-- 借书证修改页面 -->
     <div class="row" xmlns="http://www.w3.org/1999/html">
         <div class="col-md-12">
-            <h1 class="page-head-line">图书修改</h1>
+            <h1 class="page-head-line">借书证修改</h1>
 
         </div>
     </div>
@@ -14,20 +14,20 @@
 
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="/book/do_update/{{ book.book_num }}/" method="post">
+                    <form role="form" action="/student/do_update/{{ student.student_num }}/" method="post">
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书名称</label>
-                            <input class="form-control" name="name" type="text" value="{{ book.book_name }}">
+                            <input class="form-control" name="name" type="text" value="{{ student.student_name }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书作者</label>
-                            <input class="form-control" name="writer" type="text" value="{{ book.writer }}">
+                            <input class="form-control" name="writer" type="text" value="{{ student.writer }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书类型</label>
                             <select class="form-control" name="sort_id">
                                 {% for sort in sorts %}
-                                    {% if book.sort_id == sort.sort_id%}
+                                    {% if student.sort_id == sort.sort_id%}
                                         <option value="{{ sort.sort_id }}" selected="selected">{{ sort.sort_name }}</option>
                                     {% else %}
                                         <option value="{{ sort.sort_id }}">{{ sort.sort_name }}</option>
@@ -39,31 +39,31 @@
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书价格</label>
-                            <input class="form-control" type="text" name="price" value="{{ book.price }}">
+                            <input class="form-control" type="text" name="price" value="{{ student.price }}">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书出版社</label>
-                            <input class="form-control" type="text" name="pub_company" value="{{ book.pub_company }}">
+                            <input class="form-control" type="text" name="pub_company" value="{{ student.pub_company }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书出版时间</label>
-                            <input class="form-control" type="date" name="pub_date" value="{{ book.pub_date }}">
+                            <input class="form-control" type="date" name="pub_date" value="{{ student.pub_date }}">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>内容摘要</label>
-                            <textarea class="form-control" rows="3" name="brief" value="{{ book.brief }}"></textarea>
+                            <textarea class="form-control" rows="3" name="brief" value="{{ student.brief }}"></textarea>
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书总数</label>
                             <input class="form-control" type="number" name="total_num" min="0"
-                                   value="{{ book.total_num }}">
+                                   value="{{ student.total_num }}">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>图书库存</label>
                             <input class="form-control" type="number" name="current_num" min="0"
-                                   value="{{ book.total_num }}">
+                                   value="{{ student.total_num }}">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
