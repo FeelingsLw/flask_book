@@ -1,0 +1,56 @@
+{% extends "common/index.html" %}
+{% block content %}
+    <!-- 学生还书页面 -->
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col-md-12">
+            <h1 class="page-head-line">学生还书</h1>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="/book_student/do_return/{{ bs.id }}/" method="post">
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>编号</label>
+                            <input class="form-control" name="id" type="text" value="{{ bs.id }}" disabled>
+                        </div>
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>学生姓名</label>
+                            <input class="form-control" type="text" value="{{ bs.student.name }}" disabled>
+                            <input class="form-control hidden" type="text" name="student_id" value="{{ bs.student_id }}" disabled >
+                        </div>
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>所属借图书</label>
+                            <input class="form-control" type="text" value="{{ bs.book.name }}" disabled>
+                            <input class="form-control hidden" type="text" name="book_id" value="{{ bs.book_id }}"  >
+                        </div>
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>借书日期</label>
+                            <input class="form-control" type="date" name="borrow_date" value="{{ bs.borrow_date }}" disabled>
+                        </div>
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>还书日期</label>
+                            <input class="form-control" type="date" name="return_date" value="{{ bs.return_date }}">
+                        </div>
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+                            <label>价格</label>
+                            <input class="form-control" type="number" name="money" value="{{ bs.money }}">
+                        </div>
+
+                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
+
+                            <button type="submit"
+                                    class="btn btn-info col-md-offset-11 col-sm-offset-11 col-xs-offset-11">确定
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div></div>
+{% endblock content %}

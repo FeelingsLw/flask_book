@@ -1,9 +1,9 @@
 {% extends "common/index.html" %}
 {% block content %}
-    <!-- 借书证修改页面 -->
+    <!-- 借书证办理页面 -->
     <div class="row" xmlns="http://www.w3.org/1999/html">
         <div class="col-md-12">
-            <h1 class="page-head-line">借书证修改</h1>
+            <h1 class="page-head-line">借书证办理</h1>
 
         </div>
     </div>
@@ -14,25 +14,19 @@
 
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="/student/do_update/{{ student.id }}/" method="post">
-                        <div class="form-group col-md-10 col-sm-10 col-xs-12">
-                            <label>学号</label>
-                            <input class="form-control" name="id" type="text" value="{{ student.id }}" disabled>
-                        </div>
+                    <form role="form" action="/student/do_add/" method="post">
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>姓名</label>
-                            <input class="form-control" name="name" type="text" value="{{ student.name }}">
+                            <input class="form-control" name="name" type="text">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>所属学院</label>
                             <select class="form-control" name="college_id">
 
                                 {% for college in colleges %}
-                                    {% if student.sort_id == college.id%}
-                                        <option value="{{ college.id }}" selected="selected">{{ college.name }}</option>
-                                    {% else %}
+
                                         <option value="{{ college.id }}">{{ college.name }}</option>
-                                    {% endif %}
+
                                 {% endfor %}
                             </select>
                         </div>
@@ -41,7 +35,7 @@
                         <select class="form-control" name="class_id">
                             {% for class_ in clases %}
 
-                                    <option value="{{ class_id }}">{{ class_.name }}</option>
+                                        <option value="{{ class_.id }}">{{ class_.name }}</option>
 
                             {% endfor %}
 
@@ -49,26 +43,24 @@
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>性别</label>
-                            <input class="form-control" type="text" name="sex" value="{{ student.sex }}">
+                            <input class="form-control" type="text" name="sex">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>电话</label>
-                            <input class="form-control" type="text" name="telephone" value="{{ student.telephone }}">
+                            <input class="form-control" type="text" name="telephone">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>Email</label>
-                            <input class="form-control" type="text" name="email" value="{{ student.email }}"></input>
+                            <input class="form-control" type="text" name="email">
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>已借图书总数</label>
-                            <input class="form-control" type="number" name="lended_num" min="0"
-                                   value="{{ student.lended_num }}">
+                            <input class="form-control" type="number" name="lended_num" min="0">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">
                             <label>创建时间</label>
-                            <input class="form-control" type="date" name="create_date" min="0"
-                                   value="{{ student.create_date }}">
+                            <input class="form-control" type="date" name="create_date" min="0">
 
                         </div>
                         <div class="form-group col-md-10 col-sm-10 col-xs-12">

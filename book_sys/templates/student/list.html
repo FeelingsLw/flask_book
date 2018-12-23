@@ -35,13 +35,13 @@
                                 <tr>
                                     <td>{{ student.id }}</td>
                                     <td>{{ student.name }}</td>
-                                    <td>{{ student.college_id }}</td>
-                                    <td>{{ student.class_id }}</td>
+                                    <td>{{ student.college.name }}</td>
+                                    <td>{{ student.class_.name }}</td>
                                     <td>{{ student.sex }}</td>
                                     <td>{{ student.telephone }}</td>
                                     <td>{{ student.email }}</td>
                                     <td>{{ student.lended_num }}</td>
-                                    <td>{{ student.current_num }}</td>
+                                    <td>{{ student.create_date }}</td>
                                     <td>
                                         <a href="/student/update/{{ student.id }}/" class="btn btn-sm btn-primary">修改</a>
                                         <a href="/student/remove/{{ student.id }}/" class="btn btn-sm btn-danger">删除</a></td>

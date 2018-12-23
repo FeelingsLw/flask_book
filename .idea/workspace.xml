@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a0a8652-0674-4039-8622-5f514e790961" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/book_sys/templates/student/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book_sys/templates/book_student/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book_sys/templates/book_student/book_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book_sys/templates/book_student/return.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book_sys/templates/book_student/return_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book_sys/templates/student/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_sys/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_sys/servies.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/servies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_sys/templates/book/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/templates/book/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_sys/templates/book/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/templates/book/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_sys/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/templates/common/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_sys/templates/common/massage.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/templates/common/massage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_sys/templates/student/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/templates/student/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_sys/templates/student/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/templates/student/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_sys/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_sys/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -19,7 +28,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/book$Flask__view_py_.coverage" NAME="Flask (view.py) Coverage Results" MODIFIED="1544173486502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flask_book$run.coverage" NAME="run Coverage Results" MODIFIED="1544967887063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_book$run.coverage" NAME="run Coverage Results" MODIFIED="1545554413594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/book1$Flask__view_py_.coverage" NAME="Flask (view.py) Coverage Results" MODIFIED="1544533733329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/book$doc.coverage" NAME="doc Coverage Results" MODIFIED="1544080050233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_book$demo.coverage" NAME="demo Coverage Results" MODIFIED="1544804024695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/book_sys" />
@@ -116,28 +125,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="11" />
-          <entry key="py" value="10" />
+          <entry key="html" value="24" />
+          <entry key="py" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="11" />
-          <entry key="Python" value="10" />
+          <entry key="HTML" value="24" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1362" />
-          <entry key="py" value="4982" />
+          <entry key="html" value="2779" />
+          <entry key="py" value="8641" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1362" />
+          <entry key="HTML" value="2779" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="4982" />
+          <entry key="Python" value="8641" />
         </counts>
       </usages-collector>
     </session>
@@ -147,33 +156,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/book_sys/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="157" column="34" lean-forward="true" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+            <state relative-caret-position="289">
+              <caret line="241" selection-start-line="241" selection-end-line="241" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
+                <marker date="1545547744740" expanded="true" signature="5547:6213" ph="..." />
+                <marker date="1545547744740" expanded="true" signature="5688:6213" ph="..." />
+                <marker date="1545547744740" expanded="true" signature="5858:6213" ph="..." />
+                <marker date="1545547744740" expanded="true" signature="6585:6586" ph="..." />
+                <marker date="1545547744740" expanded="true" signature="6585:6748" ph="..." />
+                <marker date="1545547744740" expanded="true" signature="6861:6936" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book_sys/templates/student/list.html">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-266">
-              <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book_sys/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-                <marker date="1544710543816" expanded="true" signature="80:81" ph="..." />
-              </folding>
+            <state relative-caret-position="156">
+              <caret line="1798" selection-start-line="1798" selection-end-line="1798" />
             </state>
           </provider>
         </entry>
@@ -181,15 +183,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book_sys/servies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="97" column="16" lean-forward="true" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+            <state relative-caret-position="364">
+              <caret line="156" selection-start-line="156" selection-end-line="156" />
               <folding>
-                <marker date="1544968752101" expanded="true" signature="123:189" ph="..." />
-                <marker date="1544968752101" expanded="true" signature="335:347" ph="..." />
-                <marker date="1544968752101" expanded="true" signature="1340:1342" ph="..." />
-                <marker date="1544968752101" expanded="true" signature="1552:1557" ph="..." />
-                <marker date="1544968752101" expanded="true" signature="2180:2185" ph="..." />
-                <marker date="1544968752101" expanded="true" signature="2313:2318" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="123:189" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="335:347" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="1549:1551" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="1761:1766" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="2426:2431" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="2557:2562" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="2693:2978" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="3031:3036" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="3403:3408" ph="..." />
+                <marker date="1545554976651" expanded="true" signature="3544:3549" ph="..." />
               </folding>
             </state>
           </provider>
@@ -198,29 +204,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book_sys/templates/common/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+            <state relative-caret-position="237">
+              <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book_sys/templates/book/add.html">
+        <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/return.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+            <state relative-caret-position="283">
+              <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book_sys/models.py">
+        <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/book_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-              <folding>
-                <marker date="1544968035279" expanded="true" signature="224:301" ph="..." />
-              </folding>
+            <state relative-caret-position="84">
+              <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/book_sys/templates/student/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-131">
+              <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/return_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/book_sys/templates/book/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -300,15 +330,22 @@
         <option value="$PROJECT_DIR$/book_sys/parse.py" />
         <option value="$PROJECT_DIR$/book_sys/demo.py" />
         <option value="$PROJECT_DIR$/book_sys/templates/common/success.html" />
-        <option value="$PROJECT_DIR$/book_sys/templates/common/massage.html" />
-        <option value="$PROJECT_DIR$/book_sys/templates/common/index.html" />
-        <option value="$PROJECT_DIR$/book_sys/templates/book/list.html" />
         <option value="$PROJECT_DIR$/book_sys/templates/book/add.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/common/massage.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/student/update.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/student/add.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/student/list.html" />
         <option value="$PROJECT_DIR$/book_sys/templates/book/update.html" />
         <option value="$PROJECT_DIR$/book_sys/models.py" />
-        <option value="$PROJECT_DIR$/book_sys/templates/student/list.html" />
-        <option value="$PROJECT_DIR$/book_sys/servies.py" />
+        <option value="$PROJECT_DIR$/book_sys/templates/book_student/list.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/book_student/add.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/common/index.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/book_student/return_list.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/book/list.html" />
+        <option value="$PROJECT_DIR$/book_sys/templates/book_student/book_list.html" />
         <option value="$PROJECT_DIR$/book_sys/views.py" />
+        <option value="$PROJECT_DIR$/book_sys/templates/book_student/return.html" />
+        <option value="$PROJECT_DIR$/book_sys/servies.py" />
       </list>
     </option>
   </component>
@@ -319,10 +356,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="643" />
+    <option name="x" value="551" />
     <option name="y" value="23" />
-    <option name="width" value="995" />
-    <option name="height" value="959" />
+    <option name="width" value="1129" />
+    <option name="height" value="953" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -347,6 +384,12 @@
               <item name="flask_book" type="b2602c69:ProjectViewProjectNode" />
               <item name="flask_book" type="462c0819:PsiDirectoryNode" />
               <item name="book_sys" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flask_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask_book" type="462c0819:PsiDirectoryNode" />
+              <item name="book_sys" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,6 +398,20 @@
               <item name="book_sys" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="book" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flask_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask_book" type="462c0819:PsiDirectoryNode" />
+              <item name="book_sys" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="book_student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flask_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask_book" type="462c0819:PsiDirectoryNode" />
+              <item name="book_sys" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flask_book" type="b2602c69:ProjectViewProjectNode" />
@@ -386,11 +443,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/book_sys/templates/book_student" />
       <recent name="$PROJECT_DIR$/book_sys/templates/student" />
       <recent name="$PROJECT_DIR$/book_sys/templates/book" />
       <recent name="$PROJECT_DIR$/book_sys/templates/common" />
       <recent name="E:\class_demo\flask\book\static\assets\css" />
-      <recent name="E:\class_demo\flask\book\static" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -818,16 +875,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="643" y="23" width="995" height="959" extended-state="0" />
+    <frame x="551" y="23" width="1129" height="953" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27701995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24287029" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32868758" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3137255" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39907727" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.40069687" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -835,7 +892,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32914287" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32756633" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3283237" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="REST Client" order="13" weight="0.34514287" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -860,91 +917,87 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/book_sys/views.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="9" />
+          <line>241</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/book_sys/views.py</url>
-          <line>89</line>
-          <option name="timeStamp" value="23" />
+          <line>184</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/book_sys/servies.py</url>
+          <line>154</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/book_sys/servies.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>[request.form[key] for key in dict(request.form).keys()]</expression-string>
+        <expression-string>bool(request.args)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dict(request.form)</expression-string>
+        <expression-string>dict(request.args).keys()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dict(request.form).keys()</expression-string>
+        <expression-string>dict(request.args).keys()()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>[request.form[key][0] for key in dict(request.form).keys()]</expression-string>
+        <expression-string>dict(request.args)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>request.form.keys()</expression-string>
+        <expression-string>request.args</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>request.form</expression-string>
+        <expression-string>request.a</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dict(request.form}</expression-string>
+        <expression-string>request.args['book']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>request</expression-string>
+        <expression-string>student</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>bo</expression-string>
+        <expression-string>Student()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/slideshow/1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/slideshow/2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/slideshow/3.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/prettyPhoto/dark_rounded/contentPattern.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/prettyPhoto/dark_rounded/default_thumbnail.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/prettyPhoto/dark_rounded/loader.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/prettyPhoto/dark_rounded/sprite.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/prettyPhoto/default/default_thumb.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/book_sys/static/assets/img/prettyPhoto/default/loader.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1066,58 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/templates/common/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/templates/book/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/templates/book/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="1798" selection-start-line="1798" selection-end-line="1798" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding>
-            <marker date="1544968035279" expanded="true" signature="224:301" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/templates/book/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book_sys/templates/common/massage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/book_sys/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1129,34 +1130,154 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/common/massage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/student/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1545488975110" expanded="true" signature="319:400" ph="..." />
+            <marker date="1545488975110" expanded="true" signature="2599:2604" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/student/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/werkzeug/local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="344" selection-start-line="344" selection-end-line="344" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="73" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/common/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/book_sys/templates/student/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        <state relative-caret-position="-131">
+          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/return_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="510" selection-start-line="510" selection-end-line="510" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/book_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_sys/templates/book_student/return.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1798" selection-start-line="1798" selection-end-line="1798" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/book_sys/servies.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="97" column="16" lean-forward="true" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+        <state relative-caret-position="364">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
           <folding>
-            <marker date="1544968752101" expanded="true" signature="123:189" ph="..." />
-            <marker date="1544968752101" expanded="true" signature="335:347" ph="..." />
-            <marker date="1544968752101" expanded="true" signature="1340:1342" ph="..." />
-            <marker date="1544968752101" expanded="true" signature="1552:1557" ph="..." />
-            <marker date="1544968752101" expanded="true" signature="2180:2185" ph="..." />
-            <marker date="1544968752101" expanded="true" signature="2313:2318" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="123:189" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="335:347" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="1549:1551" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="1761:1766" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="2426:2431" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="2557:2562" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="2693:2978" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="3031:3036" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="3403:3408" ph="..." />
+            <marker date="1545554976651" expanded="true" signature="3544:3549" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/book_sys/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="157" column="34" lean-forward="true" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+        <state relative-caret-position="289">
+          <caret line="241" selection-start-line="241" selection-end-line="241" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
+            <marker date="1545547744740" expanded="true" signature="5547:6213" ph="..." />
+            <marker date="1545547744740" expanded="true" signature="5688:6213" ph="..." />
+            <marker date="1545547744740" expanded="true" signature="5858:6213" ph="..." />
+            <marker date="1545547744740" expanded="true" signature="6585:6586" ph="..." />
+            <marker date="1545547744740" expanded="true" signature="6585:6748" ph="..." />
+            <marker date="1545547744740" expanded="true" signature="6861:6936" ph="..." />
           </folding>
         </state>
       </provider>

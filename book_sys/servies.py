@@ -30,7 +30,7 @@ def get_student(uname, passwrod):
 
 # -----------------图书操作--------------------
 def add_book(book):
-    bo = Book.query.filter_by(book_name=book.book_name, writer=book.writer, pub_company=book.pub_company).first()
+    bo = Book.query.filter_by(name=book.name, writer=book.writer, pub_company=book.pub_company).first()
     if bo:
         return 0
     else:
@@ -40,25 +40,30 @@ def add_book(book):
 
 
 def get_book(id):
-    book = Book.query.filter_by(book_num=id).first()
+    book = Book.query.filter_by(id=id).first()
     return book
 
 
-def get_books(book=None):
-    if book:
-        pass
+def get_books(book_id=None, book_name=None):
+    if book_id:
+        if book_name:
+            return Book.query.filter_by(name=book_name, id=book_id)
+        else:
+            return Book.query.filter_by(id=book_id)
+    elif book_name:
+        return Book.query.filter_by(name=book_name)
     else:
         return Book.query.all()
 
 
 def remove_book(id):
-    result = Book.query.filter_by(book_num=id).delete()
+    result = Book.query.filter_by(id=id).delete()
     db.session.commit()
     return result
 
 
 def update_book(id, book):
-    result = Book.query.filter_by(book_num=id).update(book)
+    result = Book.query.filter_by(id=id).update(book)
     db.session.commit()
     return result
 
@@ -93,11 +98,11 @@ def update_student(id, stu):
 
 
 def add_student(student):
-    stu = Student.query.filter_by(id=student.id).first()
+    stu = Student.query.filter_by(name=student.name, telephone=student.telephone).first()
     if stu:
         return 0
     else:
-        db.session.add(stu)
+        db.session.add(student)
         db.session.commit()
         return 1
 
@@ -106,11 +111,49 @@ def get_college(id=None):
     if id:
         return College.query.filter_by(college_id=id).first()
     else:
-        return College.query().all()
+        return College.query.all()
 
 
 def get_class(id=None):
     if id:
         return Class_.query.filter_by(class_id=id).first()
     else:
-        return Class_.query().all()
+        return Class_.query.all()
+
+
+# --------------------------借书查看-------------------------------
+def add_book_student(bs):
+    book = get_book(bs.book_id)
+    if book.current_num > 0:
+        book.current_num -= 1
+        Book.query.filter_by(id=book.id).update({Book.current_num:book.current_num})
+        db.session.add(bs)
+        db.session.commit()
+        return True
+    else:
+        return False
+
+
+def get_book_students(book_id=None, student_id=None):
+    if book_id:
+        if student_id:
+            return Book_Student.query.filter_by(book_id=book_id, student_id=student_id).all()
+        return Book_Student.query.filter_by(book_id=book_id).all()
+    elif student_id:
+        return Book_Student.query.filter_by(student_id=student_id).all()
+    else:
+        return Book_Student.query.all()
+
+
+def get_book_student(id):
+    return Book_Student.query.filter_by(id=id).first()
+
+
+def do_return_book(id, args):
+    book_id = args['book_id']
+    args.pop('book_id')
+    result = Book_Student.query.filter_by(id=id).update(args)
+    book = Book.query.filter_by(id=book_id).first()
+    Book.query.filter_by(id=book.id).update({'current_num': book.current_num + 1})
+    db.session.commit()
+    return result

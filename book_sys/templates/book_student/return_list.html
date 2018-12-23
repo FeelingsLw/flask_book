@@ -1,0 +1,68 @@
+{% extends "common/index.html" %}
+{% block content %}
+    <!-- 图书借书页面 -->
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col-md-12">
+            <h1 class="page-head-line">借书查看</h1>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--    Striped Rows Table  -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form class="form-inline" action="/book_student/return_list/" method="post">
+                          <div class="form-group">
+                            <label for="book_id">图书编号</label>
+                            <input type="text" class="form-control" name="book_id" id="book_id" placeholder="图书编号" >
+                          </div>
+                          <div class="form-group">
+                            <label for="student_id">学生编号</label>
+                            <input type="text" class="form-control" name="student_id" id="student_id" placeholder="学生编号">
+                          </div>
+                          <button type="submit" class="btn btn-warning">查 询</button>
+                    </form>
+
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>借书学生</th>
+                                <th>所借图书</th>
+                                <th>图书总数</th>
+                                <th>图书剩余数量</th>
+                                <th>借书日期</th>
+                                <th>还书日期</th>
+                                <th>已收价格</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for bs in book_student_list %}
+                                <tr>
+                                    <td>{{ bs.id }}</td>
+                                    <td>{{ bs.student.name}}</td>
+                                    <td>{{ bs.book.name }}</td>
+                                    <td>{{ bs.book.total_num }}</td>
+                                    <td>{{ bs.book.current_num }}</td>
+                                    <td>{{ bs.borrow_date }}</td>
+                                    <td>{{ bs.return_date }}</td>
+                                    <td>{{ bs.money }}</td>
+                                    <td><a href="/book_student/return/{{ bs.id }}/" class="btn btn-sm btn-primary">还书</a>
+                                   </td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--  End  Striped Rows Table  -->
+        </div>
+    </div>
+{% endblock content %}
