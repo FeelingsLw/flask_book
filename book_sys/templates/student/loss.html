@@ -1,9 +1,9 @@
 {% extends "common/index.html" %}
 {% block content %}
-    <!-- 读者信息页面 -->
+    <!-- 借书证挂失页面 -->
     <div class="row" xmlns="http://www.w3.org/1999/html">
         <div class="col-md-12">
-            <h1 class="page-head-line">借书证查看</h1>
+            <h1 class="page-head-line">借书证挂失</h1>
 
         </div>
     </div>
@@ -27,6 +27,7 @@
                                 <th>借书证人Email</th>
                                 <th>借书数量</th>
                                 <th>入库时间</th>
+                                <th>借书证状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -42,8 +43,9 @@
                                     <td>{{ student.email }}</td>
                                     <td>{{ student.lended_num }}</td>
                                     <td>{{ student.create_date }}</td>
+                                    <td>{{ student.student_state.name }}</td>
                                     <td>
-                                        <a href="/student/update/{{ student.id }}/" class="btn btn-sm btn-primary">修改</a>
+                                        <a href="/student/loss/{{ student.id }}/" class="btn btn-sm btn-danger">挂失</a></td>
                                 </tr>
                             {% endfor %}
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from book_sys import app
 from .models import *
 from .servies import *
@@ -13,19 +13,29 @@ def main():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        author = request.form['author']
         uname = request.form['uname']
         pwd = request.form['passwd']
         print(uname + '---' + pwd)
-        user = get_user(uname, pwd)
-        return redirect(url_for('main'))
-    else:
-        return render_template('login.html')
+        if author == "1":
+            user = get_admin(uname, pwd)
+        else:
+            user = get_stu(uname, pwd)
+        if user:
+            session['real_name'] =user.real_name
+            session['author'] = int(author)
+            session.permanent = True
+            return redirect(url_for('main'))
+    return render_template('login.html')
 
 
 @app.route('/user')
 def user():
     return render_template('user.html')
-
+@app.route(('/user_logout/'))
+def user_logout():
+    session.clear()
+    return  redirect(url_for('login'))
 
 @app.errorhandler(404)
 def page_not_found(text):
@@ -40,15 +50,22 @@ def book_list():
         books = get_books()
         return render_template('book/list.html', books=books)
     else:
-        book_id = None
-        book_name = None
+        id = None
+        name = None
+        writer = None
+        pub_company = None
         if request.form:
             for key in dict(request.form).keys():
-                if "book_id" == key:
-                    book_id = request.form[key]
-                elif "book_name" == key:
-                    book_name = request.form[key]
-        books= get_books(book_id,book_name)
+                if "id" == key:
+                    id = request.form[key]
+                elif "name" == key:
+                    name = request.form[key]
+                elif 'writer' == key:
+                    writer = request.form['writer']
+                elif 'pub_company' == key:
+                    pub_company = request.form['pub_company']
+
+        books = get_books(id, name, writer, pub_company)
         return render_template('book/list.html', books=books)
 
 
@@ -117,14 +134,34 @@ def student_list():
     return render_template('student/list.html', students=students)
 
 
-@app.route('/student/remove/<int:id>/')
-def student_remove(id):
-    result = remove_student(id)
-    if result > 0:
-        return render_template('common/massage.html', msg='图书删除成功')
+@app.route('/student/remove/')
+def student_remove():
+    students = get_students()
+    return render_template('student/remove.html', students=students)
 
+
+@app.route('/student/remove/<int:id>/')
+def student_do_remove(id):
+    result = remove_student(id, {"state": 3})
+    if result > 0:
+        return render_template('common/massage.html', msg='借图书注销成功')
     else:
-        return render_template('common/massage.html', msg='图书删除失败')
+        return render_template('common/massage.html', msg='借图书注销失败')
+
+
+@app.route('/student/loss/')
+def student_loss():
+    students = get_students()
+    return render_template('student/loss.html', students=students)
+
+
+@app.route('/student/loss/<int:id>/')
+def student_do_loss(id):
+    result = loss_student(id, {"state": 2})
+    if result > 0:
+        return render_template('common/massage.html', msg='借图书挂失成功')
+    else:
+        return render_template('common/massage.html', msg='借图书挂失失败')
 
 
 @app.route('/student/add/')
@@ -176,9 +213,9 @@ def student_do_update(id):
 
 
 # -----------------借书模块----------------------
-@app.route('/book_student/book_list/',methods=['GET','POST'])
+@app.route('/book_student/book_list/', methods=['GET', 'POST'])
 def get_book_student_book_list():
-    books=[]
+    books = []
     if request.method == 'GET':
         books = get_books()
     else:
@@ -190,7 +227,7 @@ def get_book_student_book_list():
                     book_id = request.form[key]
                 elif "name" == key:
                     book_name = request.form[key]
-        books= get_books(book_id,book_name)
+        books = get_books(book_id, book_name)
     return render_template('book_student/book_list.html', books=books)
 
 

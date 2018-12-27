@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>chinaz</title>
+    <title>图书管理系统</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{ url_for('static',filename='assets/css/bootstrap.css') }}" rel="stylesheet"/>
@@ -51,98 +51,83 @@
                         <div class="inner-text">
                             Python 学院
                             <br/>
-                            <small>某某老师</small>
+                            {% if session.get('author') == '1' %}
+                            <small>老师：{{ session.get('real_name') }}</small>
+                                {% else %}
+                              <small>学生：{{ session.get('real_name') }}</small>
+                            {% endif %}
                         </div>
                     </div>
 
                 </li>
 
+                {% if session.get('author') == 1 %}
+                    <li>
+                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>主页</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop "></i>图书管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ url_for('book_add') }}"><i class="fa fa-toggle-on"></i>新书入库</a>
+                            </li>
 
-                <li>
-                    <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>主页</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-desktop "></i>图书管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/book/add/"><i class="fa fa-toggle-on"></i>新书入库</a>
-                        </li>
+                            <li>
+                                <a href="{{ url_for('book_list') }}"><i class="fa fa-circle-o "></i>图书信息修改</a>
+                            </li>
+                            <li>
+                                <a href="notification.html"><i class="fa fa-bell "></i>图书出库</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-yelp "></i>借书证管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/student/add/"><i class="fa fa-coffee"></i>借书证办理</a>
+                            </li>
 
-                        <li>
-                            <a href="/book/list/"><i class="fa fa-circle-o "></i>图书信息修改</a>
-                        </li>
-                        <li>
-                            <a href="notification.html"><i class="fa fa-bell "></i>图书出库</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-yelp "></i>借书证管理<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/student/add/"><i class="fa fa-coffee"></i>借书证办理</a>
-                        </li>
+                            <li>
+                                <a href="/student/list/"><i class="fa fa-key "></i>读者信息修改</a>
+                            </li>
+                            <li>
+                                <a href="/student/remove/"><i class="fa fa-flash "></i>借书证注销</a>
+                            </li>
+                            <li>
+                                <a href="/student/loss/"><i class="fa fa-send "></i>借书证挂失</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bicycle "></i>借书信息管理 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
 
-                        <li>
-                            <a href="/student/list/"><i class="fa fa-key "></i>读者信息修改</a>
-                        </li>
-                        <li>
-                            <a href="pricing.html"><i class="fa fa-flash "></i>借书证注销</a>
-                        </li>
-                        <li>
-                            <a href="social.html"><i class="fa fa-send "></i>借书证挂失</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>借书信息管理 <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/book_student/book_list/"><i class="fa fa-desktop "></i>办理借阅 </a>
+                            </li>
+                            <li>
+                                <a href="/book_student/return_list/"><i class="fa fa-code "></i>归还图书</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                        <li>
-                            <a href="/book_student/book_list/"><i class="fa fa-desktop "></i>办理借阅 </a>
-                        </li>
-                        <li>
-                            <a href="/book_student/return_list/"><i class="fa fa-code "></i>归还图书</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="gallery.html"><i class="fa fa-anchor "></i>图书检索</a>
-                </li>
-                <li>
-                    <a href="{{ url_for('user') }}"><i class="fa fa-bug "></i>用户管理</a>
-                </li>
-                <li>
-                    <a href="login.html"><i class="fa fa-sign-in "></i>注销登录</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
-                                </li>
+                    <li>
+                        <a href="{{ url_for('user_logout') }}"><i class="fa fa-sign-in "></i>注销登录</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="#"><i class="fa fa-bicycle "></i>借书信息管理 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
 
-                            </ul>
-
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
-                </li>
+                            <li>
+                                <a href="/book_student/book_list/"><i class="fa fa-desktop "></i>办理借阅 </a>
+                            </li>
+                            <li>
+                                <a href="/book_student/return_list/"><i class="fa fa-code "></i>归还图书</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
 
         </div>
